@@ -28,7 +28,7 @@ class Bot(Client):
             api_id=APP_ID,
             plugins={
                 "root": "plugins"
-            }
+            },
             bot_token=TG_BOT_TOKEN
         )
 
