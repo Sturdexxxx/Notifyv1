@@ -1,8 +1,8 @@
-import asyncio
+
 from pyrogram import filters
 from pyrogram import Client
 from pyrogram.types import Message
-
+import time
 from bot import Bot
 from config import ADMINS
 import requests as ree
@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 link1=[1]
 listlink=[1]
 @Bot.on_message(filters.private & filters.user(ADMINS) & filters.command('notify'))
-async def notify(client: Client, message: Message):
+def notify(client: Client, message: Message):
 #     noti()
         while True:
                 print("Searching..??")
@@ -34,22 +34,15 @@ async def notify(client: Client, message: Message):
                 for i in newlist:
                     link1.append(i)
                     b=str(i)
-                    global a
-                    a = await client.send_message(message.chat.id, f"https://www.zee5.com{b}")
+                    client.send_message(message.chat.id, f"https://www.zee5.com{b}")
                     # print(f"https://www.zee5.com{b}\n\n")
-                    await asyncio.sleep(3)
-        
-                if a:
-                    print("Message sent successfully!")
-                else:
-                    print("Failed to send message :(")
+                    time.sleep(3)
             
-                    
                 #here we delete the old episode link(premium free)
                 duplicatelinks = set(link1).difference(set(listlink))
                 duplicatelist=list(duplicatelinks)
                 for j in duplicatelist:
                     link1.remove(j)
-                await asyncio.sleep(10)
-                await notify(client,message)
+                time.sleep(10)
+                notify(client,message)
                 break
