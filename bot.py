@@ -19,6 +19,46 @@ Sample output(bunch link)
 <a class="noSelect content" data-minutelytitle="Trinayani - August 07, 2023" href="/tv-shows/details/trinayani/0-6-3199/trinayani-august-07-2023/0-1-6z5407627"><img alt="Trinayani - August 07, 2023 Episode 795" crossorigin="anonymous" src="https://akamaividz2.zee5.com/image/upload/w_522,h_294,c_scale,f_webp,q_auto:eco/resources/0-1-6z5407627/list/000001923292163834464dcba493c303e3d85a8e.jpg" title="Trinayani - August 07, 2023 Episode 795" width="100%"/></a>
 
 '''
+
+class Bot(Client):
+    def __init__(self):
+        super().__init__(
+            name="Bot",
+            api_hash=API_HASH,
+            api_id=APP_ID,
+            plugins={
+                "root": "plugins"
+            }
+            bot_token=TG_BOT_TOKEN
+        )
+
+    async def start(self):
+        await super().start()
+        usr_bot_me = await self.get_me()
+        self.uptime = datetime.now()
+
+       
+        self.set_parse_mode(ParseMode.HTML)
+        self.LOGGER(__name__).info(f"Bot Running..!\n\nCreated by \nhttps://t.me/uvbots")
+        self.LOGGER(__name__).info(f""" \n\n       
+░█████╗░░█████╗░██████╗░███████╗██╗░░██╗██████╗░░█████╗░████████╗███████╗
+██╔══██╗██╔══██╗██╔══██╗██╔════╝╚██╗██╔╝██╔══██╗██╔══██╗╚══██╔══╝╚════██║
+██║░░╚═╝██║░░██║██║░░██║█████╗░░░╚███╔╝░██████╦╝██║░░██║░░░██║░░░░░███╔═╝
+██║░░██╗██║░░██║██║░░██║██╔══╝░░░██╔██╗░██╔══██╗██║░░██║░░░██║░░░██╔══╝░░
+╚█████╔╝╚█████╔╝██████╔╝███████╗██╔╝╚██╗██████╦╝╚█████╔╝░░░██║░░░███████╗
+░╚════╝░░╚════╝░╚═════╝░╚══════╝╚═╝░░╚═╝╚═════╝░░╚════╝░░░░╚═╝░░░╚══════╝
+                                          """)
+        self.username = usr_bot_me.username
+        #web-response
+        app = web.AppRunner(await web_server())
+        await app.setup()
+        bind_address = "0.0.0.0"
+        await web.TCPSite(app, bind_address, PORT).start()
+
+    async def stop(self, *args):
+        await super().stop()
+        self.LOGGER(__name__).info("Bot stopped.")
+
 link1=[1]
 listlink=[1]
 @Bot.on_message(filters.private & filters.user(ADMINS) & filters.command('notify'))
@@ -55,43 +95,3 @@ async def notify(client: Client, message: Message):
         notify(client,message)
         break
 
-class Bot(Client):
-    def __init__(self):
-        super().__init__(
-            name="Bot",
-            api_hash=API_HASH,
-            api_id=APP_ID,
-            plugins={
-                "root": "plugins"
-            },
-            workers=TG_BOT_WORKERS,
-            bot_token=TG_BOT_TOKEN
-        )
-        self.LOGGER = LOGGER
-
-    async def start(self):
-        await super().start()
-        usr_bot_me = await self.get_me()
-        self.uptime = datetime.now()
-
-       
-        self.set_parse_mode(ParseMode.HTML)
-        self.LOGGER(__name__).info(f"Bot Running..!\n\nCreated by \nhttps://t.me/uvbots")
-        self.LOGGER(__name__).info(f""" \n\n       
-░█████╗░░█████╗░██████╗░███████╗██╗░░██╗██████╗░░█████╗░████████╗███████╗
-██╔══██╗██╔══██╗██╔══██╗██╔════╝╚██╗██╔╝██╔══██╗██╔══██╗╚══██╔══╝╚════██║
-██║░░╚═╝██║░░██║██║░░██║█████╗░░░╚███╔╝░██████╦╝██║░░██║░░░██║░░░░░███╔═╝
-██║░░██╗██║░░██║██║░░██║██╔══╝░░░██╔██╗░██╔══██╗██║░░██║░░░██║░░░██╔══╝░░
-╚█████╔╝╚█████╔╝██████╔╝███████╗██╔╝╚██╗██████╦╝╚█████╔╝░░░██║░░░███████╗
-░╚════╝░░╚════╝░╚═════╝░╚══════╝╚═╝░░╚═╝╚═════╝░░╚════╝░░░░╚═╝░░░╚══════╝
-                                          """)
-        self.username = usr_bot_me.username
-        #web-response
-        app = web.AppRunner(await web_server())
-        await app.setup()
-        bind_address = "0.0.0.0"
-        await web.TCPSite(app, bind_address, PORT).start()
-
-    async def stop(self, *args):
-        await super().stop()
-        self.LOGGER(__name__).info("Bot stopped.")
