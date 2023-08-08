@@ -2,17 +2,16 @@
 
 from aiohttp import web
 from plugins import web_server
-import asyncio
+
 import pyromod.listen
-from pyrogram import Client, filters
+from pyrogram import Client
 from pyrogram.enums import ParseMode
-from pyrogram.types import Message
+
 import sys
 from datetime import datetime
 
 from config import API_HASH, APP_ID, TG_BOT_TOKEN, PORT
-import requests as ree
-from bs4 import BeautifulSoup
+
 
 '''
 Sample output(bunch link)
