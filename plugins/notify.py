@@ -1,4 +1,4 @@
-
+import asyncio
 from pyrogram import filters
 from pyrogram import Client
 from pyrogram.types import Message
@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 link1=[1]
 listlink=[1]
 @Bot.on_message(filters.private & filters.user(ADMINS) & filters.command('notify'))
-def notify(client: Client, message: Message):
+async def notify(client: Client, message: Message):
 #     noti()
         while True:
                 print("Searching..??")
@@ -35,7 +35,7 @@ def notify(client: Client, message: Message):
                     link1.append(i)
                     b=str(i)
                     a = None
-                    a = client.send_message(message.chat.id, f"https://www.zee5.com{b}")
+                    a = await client.send_message(message.chat.id, f"https://www.zee5.com{b}")
                     if a:
                         print('Msg sent successfully..!')
                     else:
@@ -49,5 +49,5 @@ def notify(client: Client, message: Message):
                 for j in duplicatelist:
                     link1.remove(j)
                 time.sleep(10)
-                notify(client,message)
+                await notify(client,message)
                 break
