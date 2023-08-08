@@ -9,7 +9,7 @@ from pyrogram.enums import ParseMode
 import sys
 from datetime import datetime
 
-from config import API_HASH, APP_ID, TG_BOT_TOKEN, PORT
+from config import API_HASH, APP_ID, TG_BOT_TOKEN, PORT, ADMINS
 import requests as ree
 from bs4 import BeautifulSoup
 
