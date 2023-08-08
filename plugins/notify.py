@@ -51,5 +51,5 @@ async def notify(client: Client, message: Message):
                 for j in duplicatelist:
                     link1.remove(j)
                 await asyncio.sleep(10)
-                notify(client,message)
+                await notify(client,message)
                 break
