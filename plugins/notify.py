@@ -1,6 +1,7 @@
 import asyncio
-from pyrogram import filters, Client
-from pyrogram.types import Message
+from pyrogram import filters
+from pyrogram import Client as client
+from pyrogram.types import Message as message
 
 from bot import Bot
 from config import ADMINS
@@ -10,8 +11,10 @@ from bs4 import BeautifulSoup
 link1=[1]
 listlink=[1]
 @Bot.on_message(filters.private & filters.user(ADMINS) & filters.command('notify'))
-async def notify(client: Client, message: Message):
-    while True:
+# async def notify(client: Client, message: Message):
+#     noti()
+
+while True:
         #kannada serials link
         url = ('https://www.zee5.com/tv-shows/collections/before-tv-episodes-zee-kannada/0-8-670')
 
@@ -40,7 +43,6 @@ async def notify(client: Client, message: Message):
         duplicatelist=list(duplicatelinks)
         for j in duplicatelist:
             link1.remove(j)
-        notify(client,message)
-        break
-
-
+        await asyncio.sleep(10)
+        # notify(client,message)
+        # break
