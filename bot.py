@@ -2,10 +2,11 @@
 
 from aiohttp import web
 from plugins import web_server
-
+import asyncio
 import pyromod.listen
 from pyrogram import Client, filters
 from pyrogram.enums import ParseMode
+from pyrogram.types import Message
 import sys
 from datetime import datetime
 
@@ -73,7 +74,7 @@ async def notify(client: Client, message: Message):
             b=str(i)
             await client.send_message(message.chat.id, f"https://www.zee5.com{b}")
             # print(f"https://www.zee5.com{b}\n\n")
-            await asyncio.sleep(5)
+            await asyncio.sleep(3)
             
         #here we delete the old episode link(premium free)
         duplicatelinks = set(link1).difference(set(listlink))
