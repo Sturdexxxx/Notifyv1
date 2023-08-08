@@ -34,7 +34,12 @@ def notify(client: Client, message: Message):
                 for i in newlist:
                     link1.append(i)
                     b=str(i)
-                    client.send_message(message.chat.id, f"https://www.zee5.com{b}")
+                    global a
+                    a = client.send_message(message.chat.id, f"https://www.zee5.com{b}")
+                        if a:
+                                print('Msg sent successfully..!')
+                        else:
+                                print('Msg not sent successfully..!')
                     # print(f"https://www.zee5.com{b}\n\n")
                     time.sleep(3)
             
