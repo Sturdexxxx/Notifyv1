@@ -36,10 +36,10 @@ def notify(client: Client, message: Message):
                     b=str(i)
                     a = None
                     a = client.send_message(message.chat.id, f"https://www.zee5.com{b}")
-                        if a:
-                                print('Msg sent successfully..!')
-                        else:
-                                print('Msg not sent successfully..!')
+                    if a:
+                        print('Msg sent successfully..!')
+                    else:
+                        print('Msg not sent successfully..!')
                     # print(f"https://www.zee5.com{b}\n\n")
                     time.sleep(3)
             
