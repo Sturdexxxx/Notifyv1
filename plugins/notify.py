@@ -33,7 +33,7 @@ while True:
                 link1.append(i)
                 b=str(i)
                 a = None
-                a = await client.send_message(message.chat.id, f"https://www.zee5.com{b}")
+                a = client.send_message(message.chat.id, f"https://www.zee5.com{b}")
                 if a:
                     print('Msg sent successfully..!')
                 else:
