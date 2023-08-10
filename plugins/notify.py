@@ -24,7 +24,7 @@ while True:
                 
         for l in episode_element:
                 if l['href'] not in listlink:
-                listlink.append(l['href'])
+                    listlink.append(l['href'])
                         
                 #here we check the episode is new or not
         new_link = set(listlink).difference(set(link1))
