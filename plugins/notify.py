@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 link1=[1]
 listlink=[1]
 
-@Client.on_message(filters.private & filters.user(ADMINS) & filters.command(["get"]))
+@Bot.on_message(filters.private & filters.user(ADMINS) & filters.command(["get"]))
 async def newepisode(client: Client, message: Message):
     while True:
         print("Searching..??")
