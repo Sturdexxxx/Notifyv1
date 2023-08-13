@@ -4,7 +4,7 @@ from pyrogram import Client
 from pyrogram.types import Message
 import time
 from bot import Bot
-from config import ADMINS, LOG_ID, OWNER_ID
+from config import ADMINS, LOG_ID
 import requests as ree
 from bs4 import BeautifulSoup
 
@@ -14,7 +14,7 @@ from bs4 import BeautifulSoup
 
 link1=[1]
 listlink=[1]
-@Bot.on_message(filters.private & filters.user(OWNER_ID) & filters.command(["get"]))
+@Bot.on_message(filters.private & filters.user(ADMINS) & filters.command(["get"]))
 async def newepisode(client: Client, message: Message):
     while True:
         print("Searching..??")
@@ -48,13 +48,13 @@ async def newepisode(client: Client, message: Message):
                     print('Msg sent successfully to Nandan..!')
                 else:
                     print('Msg not sent successfully..!')
-                time.sleep(3)
+                time.sleep(5)
             
         #here we delete the old episode link(premium free)
         duplicatelinks = set(link1).difference(set(listlink))
         duplicatelist=list(duplicatelinks)
         for j in duplicatelist:
                 link1.remove(j)
-        time.sleep(10)
+        time.sleep(20)
         #await c.delete()
         continue
