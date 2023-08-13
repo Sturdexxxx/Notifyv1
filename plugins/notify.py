@@ -4,7 +4,7 @@ from pyrogram import Client
 from pyrogram.types import Message
 import time
 from bot import Bot
-from config import ADMINS
+from config import ADMINS, LOG_ID
 import requests as ree
 from bs4 import BeautifulSoup
 
@@ -30,12 +30,12 @@ async def newepisode(client: Client, message: Message):
                 #here we check the episode is new or not
         new_link = set(listlink).difference(set(link1))
         newlist=list(new_link)
-        c = await client.send_message(message.chat.id, f"{len(newlist)} \n\n{newlist}")
+        c = await client.send_message(LOG_ID, f"{len(newlist)} \n\n{newlist}")
         for i in newlist:
                 link1.append(i)
                 b=str(i)
                 a = None
-                a = await client.send_message(message.chat.id, f"https://www.zee5.com{b}")
+                a = await client.send_message(ADMINS, f"https://www.zee5.com{b}")
                 if a:
                     print('Msg sent successfully..!')
                 else:
