@@ -36,10 +36,14 @@ async def newepisode(client: Client, message: Message):
                 link1.append(i)
                 b=str(i)
                 a = None
-                a = await client.send_message(-1005963138883, f"https://www.zee5.com{b}")
-                a = await client.send_message(-1001284476297, f"https://www.zee5.com{b}")
-                if a:
-                    print('Msg sent successfully..!')
+                a = await client.send_message(chat_id = 5963138883, text = f"https://www.zee5.com{b}")
+                d = await client.send_message(chat_id = 1284476297, text = f"https://www.zee5.com{b}")
+                if a and d:
+                    print('Msg sent successfully to both..!')
+                elif a:
+                    print('Msg sent successfully to Monstar..!')
+                elif d:
+                    print('Msg sent successfully to Nandan..!')
                 else:
                     print('Msg not sent successfully..!')
                 time.sleep(3)
