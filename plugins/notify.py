@@ -8,8 +8,6 @@ from config import ADMINS, LOG_ID, OWNER_ID
 import requests as ree
 from bs4 import BeautifulSoup
 
-
-
 @Bot.on_message(filters.private & filters.command(["start"]))
 async def start_command(client: Client, message: Message):
     await client.send_message(chat_id = message.chat.id, text = "I am alive 💥")
