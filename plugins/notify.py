@@ -2,7 +2,7 @@ import asyncio
 from pyrogram import filters
 from pyrogram import Client
 from pyrogram.types import Message
-# import time
+import time
 from bot import Bot
 from config import ADMINS
 import requests as ree
@@ -27,10 +27,10 @@ async def newepisode(client: Client, message: Message):
         for l in episode_element:
                 if l['href'] not in listlink:
                     listlink.append(l['href'])
-                        
                 #here we check the episode is new or not
         new_link = set(listlink).difference(set(link1))
         newlist=list(new_link)
+        c = await client.send_message(message.chat.id, f"{len(newlist)} \n\n{newlist}")
         for i in newlist:
                 link1.append(i)
                 b=str(i)
@@ -40,7 +40,6 @@ async def newepisode(client: Client, message: Message):
                     print('Msg sent successfully..!')
                 else:
                     print('Msg not sent successfully..!')
-                    # print(f"https://www.zee5.com{b}\n\n")
                 time.sleep(3)
             
                 #here we delete the old episode link(premium free)
@@ -48,6 +47,6 @@ async def newepisode(client: Client, message: Message):
         duplicatelist=list(duplicatelinks)
         for j in duplicatelist:
                 link1.remove(j)
-        time.sleep(60)
+        time.sleep(10)
         #await notify(client,message)
         continue
