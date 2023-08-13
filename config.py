@@ -42,7 +42,7 @@ PORT = os.environ.get("PORT", "8080")
 # START_MSG = os.environ.get("START_MESSAGE", "Hello {first}\n\nI can store private files in Specified Channel and other users can access it from special link.")
 try:
     ADMINS=[]
-    for x in (os.environ.get("ADMINS", "1365052525 5963138883").split()):
+    for x in (os.environ.get("ADMINS", "1365052525 5963138883 1284476297").split()):
         ADMINS.append(int(x))
 except ValueError:
         raise Exception("Your Admins list does not contain valid integers.")
