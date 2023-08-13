@@ -1,7 +1,7 @@
 import asyncio
 from pyrogram import filters
-from pyrogram import Client as client
-from pyrogram.types import Message as message
+from pyrogram import Client
+from pyrogram.types import Message
 # import time
 from bot import Bot
 from config import ADMINS
