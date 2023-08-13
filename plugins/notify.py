@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 
 
 @Bot.on_message(filters.private & filters.command(["start"]))
-async def start(client: Client, message: Message):
+async def start_command(client: Client, message: Message):
     d = await client.send_message(chat_id = message.chat.id, text = "I am alive 💥")
     await time.sleep(60)
     await d.delete()
