@@ -2,41 +2,16 @@ import asyncio
 from pyrogram import filters
 from pyrogram import Client as client
 from pyrogram.types import Message as message
-import time
+# import time
 from bot import Bot
-from config import ADMINS, METHOD_MESSAGE
+from config import ADMINS
 import requests as ree
-from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 from bs4 import BeautifulSoup
 
 link1=[1]
 listlink=[1]
 
-LINK_REPLY_MARKUP = InlineKeyboardMarkup(
-    [
-            InlineKeyboardButton(
-                "New Episodes", callback_data="newepisode"
-            ),
-            InlineKeyboardButton(
-                "Stop Searching", callback_data="stopsearch"
-            ),
-    ]
-)
-@Bot.on_message(filters.private & filters.user(ADMINS) & filters.command(["link"]))
-async def date(bot, message):
-    method_name = CallbackQuery.data.split("#")[1]
-    REPLY_MARKUP = InlineKeyboardMarkup(
-            [[InlineKeyboardButton("Back", callback_data="LINK_REPLY_MARKUP")]]
-        )
-    s = METHOD_MESSAGE.format(method=method_name)
-    return await CallbackQuery.message.edit(s, reply_markup=LINK_REPLY_MARKUP)
-        
-    await query.message.edit(
-            "Method changed successfully",
-            reply_markup=REPLY_MARKUP,
-        )
-
-@Bot.on_callback_query(filters.regex('newepisode'))
+@Client.on_message(filters.private & filters.user(ADMINS) & filters.command(["get"]))
 async def newepisode(client: Client, message: Message):
     while True:
         print("Searching..??")
@@ -73,14 +48,6 @@ async def newepisode(client: Client, message: Message):
         duplicatelist=list(duplicatelinks)
         for j in duplicatelist:
                 link1.remove(j)
-        time.sleep(10)
+        time.sleep(60)
         #await notify(client,message)
         continue
-    
-@Bot.on_callback_query(filters.regex('stopsearch'))
-async def stopsearch():
-    pass
-        
-# @Bot.on_message(filters.private & filters.user(ADMINS) & filters.command('batch'))
-# async def batch(client: Client, message: Message):
-#         await client.send_message(chat_id=message.chat.id, text=f"<b>{}</b>")
