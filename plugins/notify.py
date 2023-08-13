@@ -6,6 +6,7 @@ import time
 from bot import Bot
 from config import ADMINS, METHOD_MESSAGE
 import requests as ree
+from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 from bs4 import BeautifulSoup
 
 link1=[1]
@@ -23,12 +24,12 @@ LINK_REPLY_MARKUP = InlineKeyboardMarkup(
 )
 @Bot.on_message(filters.private & filters.user(ADMINS) & filters.command(["link"]))
 async def date(bot, message):
-    method_name = query.data.split("#")[1]
+    method_name = CallbackQuery.data.split("#")[1]
     REPLY_MARKUP = InlineKeyboardMarkup(
             [[InlineKeyboardButton("Back", callback_data="LINK_REPLY_MARKUP")]]
         )
     s = METHOD_MESSAGE.format(method=method_name)
-    return await query.message.edit(s, reply_markup=LINK_REPLY_MARKUP)
+    return await CallbackQuery.message.edit(s, reply_markup=LINK_REPLY_MARKUP)
         
     await query.message.edit(
             "Method changed successfully",
