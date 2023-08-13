@@ -9,3 +9,4 @@ pyromod==1.5
 aiohttp
 requests
 bs4
+re
