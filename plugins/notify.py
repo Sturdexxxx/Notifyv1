@@ -28,7 +28,7 @@ async def date(bot, message):
             [[InlineKeyboardButton("Back", callback_data="LINK_REPLY_MARKUP")]]
         )
     s = METHOD_MESSAGE.format(method=method_name)
-    return await query.message.edit(s, reply_markup=METHOD_REPLY_MARKUP)
+    return await query.message.edit(s, reply_markup=LINK_REPLY_MARKUP)
         
     await query.message.edit(
             "Method changed successfully",
