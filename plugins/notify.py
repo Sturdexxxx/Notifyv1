@@ -30,13 +30,14 @@ async def newepisode(client: Client, message: Message):
                 #here we check the episode is new or not
         new_link = set(listlink).difference(set(link1))
         newlist=list(new_link)
-        c = await client.send_message(LOG_ID, f"{len(newlist)} \n\n{newlist}")
+        dd = message.chat_id
+        c = await client.send_message(LOG_ID, f"{len(newlist)} \n\n{newlist}\n\n{dd}")
         for i in newlist:
                 link1.append(i)
                 b=str(i)
                 a = None
-                a = await client.send_message(ADMINS, f"https://www.zee5.com{b}")
-                # a = await client.send_message("9148206108", f"https://www.zee5.com{b}")
+                a = await client.send_message(-1005963138883, f"https://www.zee5.com{b}")
+                a = await client.send_message(-1001284476297, f"https://www.zee5.com{b}")
                 if a:
                     print('Msg sent successfully..!')
                 else:
