@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 
 
 @Bot.on_message(filters.private & filters.user(ADMINS) & filters.command(["start"]))
-async def newepisode(client: Client, message: Message):
+async def start(client: Client, message: Message):
     d = await client.reply_text(f"I am alive 💥")
     await time.sleep(60)
     await d.delete()
