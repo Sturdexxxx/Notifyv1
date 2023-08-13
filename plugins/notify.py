@@ -46,8 +46,8 @@ async def newepisode(client: Client, message: Message):
             list1.append(i)
             aa=str(i)
             a = None
-            a = await client.send_message(chat_id = 5963138883, text = f"https://www.zee5.com{dic[aa]}")
-            dd = await client.send_message(chat_id = 1284476297, text = f"https://www.zee5.com{dic[aa]}")
+            a = await client.send_message(chat_id = 5963138883, text = f"New Episode Link..\n<code>{dic[aa]}</code>\n{dic[aa]}")
+            dd = await client.send_message(chat_id = 1284476297, text = f"New Episode Link..\n<code>{dic[aa]}</code>\n{dic[aa]}")
             if a and dd:
                 print('Msg sent successfully to both..!')
             elif a:
