@@ -49,5 +49,6 @@ async def newepisode(client: Client, message: Message):
         for j in duplicatelist:
                 link1.remove(j)
         time.sleep(10)
+        await c.delete()
         #await notify(client,message)
         continue
