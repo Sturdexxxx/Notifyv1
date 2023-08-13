@@ -15,7 +15,7 @@ from bs4 import BeautifulSoup
 
 list1 =[1]
 list2=[1]
-d=dict()
+dic=dict()
 @Bot.on_message(filters.private & filters.user(ADMINS) & filters.command(["get"]))
 async def newepisode(client: Client, message: Message):
     while True:
@@ -36,7 +36,7 @@ async def newepisode(client: Client, message: Message):
             episode_no = s.find("div", class_="metaInfo lineHeightClass")
             episode = str(episode_no.find("p"))
             ep=str(re.findall("E\s\d+",episode)[0])
-            d[ep]=u
+            dic[ep]=u
             list2.append(ep)
         
         #here we check the episode is new or not
@@ -44,15 +44,15 @@ async def newepisode(client: Client, message: Message):
         new_list = list(s3)
         for i in new_list:
             list1.append(i)
-            a=str(i)
+            aa=str(i)
             a = None
-            a = await client.send_message(chat_id = 5963138883, text = f"https://www.zee5.com{b}")
-            d = await client.send_message(chat_id = 1284476297, text = f"https://www.zee5.com{b}")
-            if a and d:
+            a = await client.send_message(chat_id = 5963138883, text = f"https://www.zee5.com{dic[aa]}")
+            dd = await client.send_message(chat_id = 1284476297, text = f"https://www.zee5.com{dic[aa]}")
+            if a and dd:
                 print('Msg sent successfully to both..!')
             elif a:
                 print('Msg sent successfully to Monstar..!')
-            elif d:
+            elif dd:
                 print('Msg sent successfully to Nandan..!')
             else:
                 print('Msg not sent successfully..!')
@@ -63,5 +63,6 @@ async def newepisode(client: Client, message: Message):
         duplicate_ep=list(duplicate)
         for j in duplicate_ep:
                 list1.remove(j)
+        dic.clear() #clear the dictionary
         time.sleep(20)
         continue
