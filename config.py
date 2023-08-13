@@ -91,6 +91,19 @@ ADMINS.append(OWNER_ID)
 
 
 # LOG_TEXT_P =  """#𝐍𝐞𝐰𝐔𝐬𝐞𝐫𝐊𝐒
+
+METHOD_MESSAGE = """
+Current Method: {method}
+    
+Methods Available:
+
+> `New Episodes` - Bot will start to searching the new episodes in Zee5.
+
+> `Stop Searching` - Bot will stop searching the new episodes in Zee5.
+
+    
+To change method, choose it from the following options:
+"""
     
 # <b>᚛› 𝐈𝐃 - <code>{}</code></b>
 # <b>᚛› 𝐍𝐚𝐦𝐞 - {}</b>
