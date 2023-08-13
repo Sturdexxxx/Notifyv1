@@ -13,8 +13,9 @@ from bs4 import BeautifulSoup
 #async def start_command(client: Client, message: Message):
     #await client.send_message(chat_id = message.chat.id, text = "I am alive 💥")
 
-link1=[1]
-listlink=[1]
+list1 =[1]
+list2=[1]
+d=dict()
 @Bot.on_message(filters.private & filters.user(ADMINS) & filters.command(["get"]))
 async def newepisode(client: Client, message: Message):
     while True:
