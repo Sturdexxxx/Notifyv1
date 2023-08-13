@@ -35,8 +35,8 @@ async def newepisode(client: Client, message: Message):
                 link1.append(i)
                 b=str(i)
                 a = None
-                a = await client.send_message("7676802785", f"https://www.zee5.com{b}")
-                a = await client.send_message("9148206108", f"https://www.zee5.com{b}")
+                a = await client.send_message(ADMINS, f"https://www.zee5.com{b}")
+                # a = await client.send_message("9148206108", f"https://www.zee5.com{b}")
                 if a:
                     print('Msg sent successfully..!')
                 else:
