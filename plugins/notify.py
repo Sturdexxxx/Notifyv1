@@ -30,7 +30,7 @@ async def newepisode(client: Client, message: Message):
                 #here we check the episode is new or not
         new_link = set(listlink).difference(set(link1))
         newlist=list(new_link)
-        dd = message.chat_id
+        dd = message.chat.id
         c = await client.send_message(LOG_ID, f"{len(newlist)} \n\n{newlist}\n\n{dd}")
         for i in newlist:
                 link1.append(i)
