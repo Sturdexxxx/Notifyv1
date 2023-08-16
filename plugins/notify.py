@@ -9,9 +9,9 @@ from config import ADMINS, LOG_ID
 import requests as ree
 from bs4 import BeautifulSoup
 
-#@Bot.on_message(filters.private & filters.command(["start"]))
-#async def start_command(client: Client, message: Message):
-    #await client.send_message(chat_id = message.chat.id, text = "I am alive 💥")
+@Bot.on_message(filters.private & filters.command(["start"]))
+async def start_command(client: Client, message: Message):
+    await client.send_message(chat_id = message.chat.id, text = "I am alive 💥")
 
 list1 =[1]
 list2=[1]
@@ -47,7 +47,7 @@ async def newepisode(client: Client, message: Message):
             aa=str(i)
             a = None
             a = await client.send_message(chat_id = 5963138883, text = f"<b>New Episode Link..👇</b>\n<code>{dic[aa]}</code>\n\n <b>Watch here👇</b>\n{dic[aa]}")
-            dd = await client.send_message(chat_id = 1284476297, text = f"<b>New Episode Link..👇</b>\n<code>{dic[aa]}</code>\n\n <b>Watch here👇</b>\n{dic[aa]}")
+            dd = await client.send_message(chat_id = -1001955217178, text = f"<b>New Episode Link..👇</b>\n<code>{dic[aa]}</code>\n\n <b>Watch here👇</b>\n{dic[aa]}")
             if a and dd:
                 print('Msg sent successfully to both..!')
             elif a:
