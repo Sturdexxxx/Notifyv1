@@ -48,14 +48,14 @@ async def newepisode(client: Client, message: Message):
             a = None
             a = await client.send_message(chat_id = 5963138883, text = f"<b>New Episode Link..👇</b>\n<code>{dic[aa]}</code>\n\n <b>Watch here👇</b>\n{dic[aa]}")
             dd = await client.send_message(chat_id = -1001955217178, text = f"<b>New Episode Link..👇</b>\n<code>{dic[aa]}</code>\n\n <b>Watch here👇</b>\n{dic[aa]}")
-            if a and dd:
-                print('Msg sent successfully to both..!')
-            elif a:
-                print('Msg sent successfully to Monstar..!')
-            elif dd:
-                print('Msg sent successfully to Nandan..!')
-            else:
-                print('Msg not sent successfully..!')
+            #if a and dd:
+                #print('Msg sent successfully to both..!')
+            #elif a:
+                #print('Msg sent successfully to Monstar..!')
+            #elif dd:
+                #print('Msg sent successfully to Nandan..!')
+            #else:
+                #print('Msg not sent successfully..!')
             time.sleep(5)
             
         #here we delete the old episode link(premium free)
